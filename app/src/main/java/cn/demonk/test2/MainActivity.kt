@@ -1,5 +1,6 @@
 package cn.demonk.test2
 
+
 import android.os.Build
 import android.os.Bundle
 import android.support.annotation.RequiresApi
@@ -160,7 +161,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun loadso3_2(v:View){
+    fun loadso3_2(v: View) {
         var so_source = File(filesDir.parentFile.path + File.separator + "lib", "libnative-lib.so")
         var so_dst = File(filesDir, "libnative-lib-other.so")
 
@@ -191,11 +192,16 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    fun parentLoadso(v: View) {
+        System.loadLibrary("native-lib")
+        Log.e("demonk", "load test=" + loadtestparent())
+    }
+
     /**
      * A native method that is implemented by the 'native-lib' native library,
      * which is packaged with this application.
      */
-//    external fun stringFromJNI(): String
+    external fun loadtestparent(): String
 
 //    companion object {
 //
